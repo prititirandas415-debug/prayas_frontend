@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f0fdf4;
+    color: #1a2e22;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer components {
+  /* ── Glassmorphism Card ─────────────────────────────── */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/60 shadow-lg rounded-2xl;
+  }
+
+  /* ── Primary Button ─────────────────────────────────── */
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-600 to-brand-500 text-white font-semibold
+           px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:from-brand-700 hover:to-brand-600
+           transition-all duration-200 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+  }
+
+  /* ── Secondary Button ───────────────────────────────── */
+  .btn-secondary {
+    @apply bg-white text-brand-700 font-semibold border-2 border-brand-300
+           px-6 py-3 rounded-xl shadow-sm hover:bg-brand-50 hover:border-brand-400
+           transition-all duration-200 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+  }
+
+  /* ── Ocean Button ───────────────────────────────────── */
+  .btn-ocean {
+    @apply bg-gradient-to-r from-ocean-600 to-ocean-500 text-white font-semibold
+           px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:from-ocean-700 hover:to-ocean-600
+           transition-all duration-200 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-ocean-400 focus:ring-offset-2;
+  }
+
+  /* ── Form Input ─────────────────────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white
+           text-gray-800 placeholder-gray-400 font-medium
+           focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100
+           transition-all duration-200;
+  }
+
+  /* ── Form Label ─────────────────────────────────────── */
+  .form-label {
+    @apply block text-sm font-semibold text-gray-700 mb-2;
+  }
+
+  /* ── Select ─────────────────────────────────────────── */
+  .form-select {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white
+           text-gray-800 font-medium cursor-pointer appearance-none
+           focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100
+           transition-all duration-200;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 18px;
+    padding-right: 44px;
+  }
+
+  /* ── Textarea ───────────────────────────────────────── */
+  .form-textarea {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white
+           text-gray-800 placeholder-gray-400 font-medium resize-none
+           focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100
+           transition-all duration-200;
+  }
+
+  /* ── Stat Card ──────────────────────────────────────── */
+  .stat-card {
+    @apply glass-card p-5 flex flex-col gap-1;
+  }
+
+  /* ── Badge ──────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-600 to-ocean-600 bg-clip-text text-transparent;
+  }
+
+  .bg-mesh {
+    background-image:
+      radial-gradient(at 40% 20%, hsl(145, 80%, 90%) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(210, 80%, 90%) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(145, 60%, 92%) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsl(210, 60%, 92%) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(145, 80%, 90%) 0px, transparent 50%);
+    background-color: #f0fdf4;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+}
